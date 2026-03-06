@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 import { ServiceOverview } from "@/components/dashboard/ServiceOverview";
+import { StorageStatus } from "@/components/dashboard/StorageStatus";
 import { CreateAccountModal } from "@/components/dashboard/CreateAccountModal";
 
 export default function Index() {
@@ -39,6 +40,10 @@ export default function Index() {
         <WelcomeBanner userName="Alex" />
 
         <ServiceOverview />
+
+        <div className="mt-8 max-w-[220px]">
+          <StorageStatus />
+        </div>
       </motion.div>
 
       {/* Dark overlay when gated */}
