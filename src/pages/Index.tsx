@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 import { ServiceOverview } from "@/components/dashboard/ServiceOverview";
+import { StorageStatus } from "@/components/dashboard/StorageStatus";
 import { CreateAccountModal } from "@/components/dashboard/CreateAccountModal";
 
 export default function Index() {
