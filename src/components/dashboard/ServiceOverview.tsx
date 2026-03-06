@@ -10,7 +10,8 @@ interface ServiceCard {
   label: string;
   value: string;
   icon: React.ReactNode;
-  iconBg: string;
+  iconColor: string;
+  glowColor: string;
   route: string;
 }
 
@@ -19,58 +20,77 @@ const services: ServiceCard[] = [
     label: "Converted",
     value: "13 files",
     icon: <FileOutput className="w-5 h-5" />,
-    iconBg: "bg-blue-500/10 text-blue-600 dark:text-blue-400",
+    iconColor: "rgba(59,130,246,0.12)",
+    glowColor: "rgba(59,130,246,0.2)",
     route: "/convert",
   },
   {
     label: "Compressed",
-    value: "1.04 MB saved",
+    value: "1.04 MB",
     icon: <Minimize2 className="w-5 h-5" />,
-    iconBg: "bg-rose-500/10 text-rose-600 dark:text-rose-400",
+    iconColor: "rgba(244,63,94,0.12)",
+    glowColor: "rgba(244,63,94,0.2)",
     route: "/compress",
   },
   {
     label: "Transferred",
     value: "119 files",
     icon: <Send className="w-5 h-5" />,
-    iconBg: "bg-indigo-500/10 text-indigo-600 dark:text-indigo-400",
+    iconColor: "rgba(99,102,241,0.12)",
+    glowColor: "rgba(99,102,241,0.2)",
     route: "/transfer",
   },
   {
     label: "AI Checks",
     value: "13 checks",
     icon: <ShieldCheck className="w-5 h-5" />,
-    iconBg: "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400",
+    iconColor: "rgba(16,185,129,0.12)",
+    glowColor: "rgba(16,185,129,0.2)",
     route: "/ai-check",
   },
   {
     label: "Signed",
     value: "20 docs",
     icon: <PenLine className="w-5 h-5" />,
-    iconBg: "bg-amber-500/10 text-amber-600 dark:text-amber-400",
+    iconColor: "rgba(234,179,8,0.12)",
+    glowColor: "rgba(234,179,8,0.2)",
     route: "/sign",
   },
   {
     label: "Translated",
     value: "8 docs",
     icon: <Languages className="w-5 h-5" />,
-    iconBg: "bg-violet-500/10 text-violet-600 dark:text-violet-400",
+    iconColor: "rgba(139,92,246,0.12)",
+    glowColor: "rgba(139,92,246,0.2)",
     route: "/translate",
   },
   {
     label: "Compared",
     value: "5 pairs",
     icon: <GitCompare className="w-5 h-5" />,
-    iconBg: "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400",
+    iconColor: "rgba(6,182,212,0.12)",
+    glowColor: "rgba(6,182,212,0.2)",
     route: "/tools/compare",
   },
   {
     label: "Stored",
     value: "247 files",
     icon: <FileText className="w-5 h-5" />,
-    iconBg: "bg-orange-500/10 text-orange-600 dark:text-orange-400",
+    iconColor: "rgba(249,115,22,0.12)",
+    glowColor: "rgba(249,115,22,0.2)",
     route: "/storage",
   },
+];
+
+const iconTextColors = [
+  "text-blue-500",
+  "text-rose-500",
+  "text-indigo-500",
+  "text-emerald-500",
+  "text-yellow-500",
+  "text-violet-500",
+  "text-cyan-500",
+  "text-orange-500",
 ];
 
 export function ServiceOverview() {
@@ -89,7 +109,7 @@ export function ServiceOverview() {
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollBy({ left: dir === "left" ? -260 : 260, behavior: "smooth" });
+    el.scrollBy({ left: dir === "left" ? -280 : 280, behavior: "smooth" });
   };
 
   return (
@@ -99,11 +119,11 @@ export function ServiceOverview() {
       transition={{ duration: 0.35, delay: 0.1 }}
       className="mt-8"
     >
-      <div className="flex items-center justify-between mb-4">
+      <div className="flex items-center justify-between mb-5">
         <h2 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">
           Overview
         </h2>
-        <div className="flex gap-1">
+        <div className="flex gap-1.5">
           <button
             onClick={() => scroll("left")}
             className={`p-1.5 rounded-lg border border-border transition-all ${
@@ -132,7 +152,7 @@ export function ServiceOverview() {
       <div
         ref={scrollRef}
         onScroll={checkScroll}
-        className="flex gap-3 overflow-x-auto scrollbar-hide pb-1 -mx-1 px-1"
+        className="flex gap-8 overflow-x-auto pb-2 -mx-1 px-1"
         style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
       >
         {services.map((s, i) => (
@@ -142,17 +162,35 @@ export function ServiceOverview() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.06 * i }}
             onClick={() => navigate(s.route)}
-            className="group flex-shrink-0 w-[160px] rounded-2xl border border-border bg-card p-4 
-                       text-left transition-all duration-200 
-                       hover:border-primary/20 hover:shadow-[0_2px_20px_-4px_hsl(var(--primary)/0.12)]
-                       active:scale-[0.98]"
+            className="group flex-shrink-0 w-[172px] text-left transition-all duration-200 ease-out
+                       active:scale-[0.97]"
+            style={{
+              background: "linear-gradient(180deg, hsl(var(--card)), hsl(var(--surface-2)))",
+              border: "1px solid hsl(var(--border) / 0.5)",
+              borderRadius: "14px",
+              padding: "22px",
+              boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
+            }}
+            whileHover={{
+              y: -4,
+              boxShadow: "0 12px 40px rgba(0,0,0,0.14)",
+              transition: { duration: 0.2, ease: "easeOut" },
+            }}
           >
-            <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${s.iconBg} mb-3 
-                            transition-transform duration-200 group-hover:scale-110`}>
+            <div
+              className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 
+                          transition-all duration-200 ${iconTextColors[i]}`}
+              style={{
+                background: s.iconColor,
+                boxShadow: `0 0 20px ${s.glowColor}`,
+              }}
+            >
               {s.icon}
             </div>
-            <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
-            <p className="text-lg font-semibold text-foreground tracking-tight leading-tight">
+            <p className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase mb-1.5">
+              {s.label}
+            </p>
+            <p className="text-2xl font-bold text-foreground tracking-tight leading-none">
               {s.value}
             </p>
           </motion.button>
