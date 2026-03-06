@@ -159,15 +159,15 @@ export function ServiceOverview() {
       <div className="relative -mx-6">
         {/* Left fade */}
         <div
-          className={`pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10 transition-opacity duration-300 ${
-            canScrollLeft ? "opacity-100" : "opacity-0"
+          className={`pointer-events-none absolute left-0 top-0 bottom-0 w-5 z-10 transition-opacity duration-300 ${
+            canScrollLeft ? "opacity-70" : "opacity-0"
           }`}
           style={{ background: "linear-gradient(to right, hsl(var(--background)), transparent)" }}
         />
         {/* Right fade */}
         <div
-          className={`pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 transition-opacity duration-300 ${
-            canScrollRight ? "opacity-100" : "opacity-0"
+          className={`pointer-events-none absolute right-0 top-0 bottom-0 w-5 z-10 transition-opacity duration-300 ${
+            canScrollRight ? "opacity-70" : "opacity-0"
           }`}
           style={{ background: "linear-gradient(to left, hsl(var(--background)), transparent)" }}
         />
