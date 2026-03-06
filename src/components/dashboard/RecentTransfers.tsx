@@ -5,17 +5,16 @@ import { cn } from "@/lib/utils";
 interface TransferItem {
   id: string;
   fileName: string;
-  sender: string;
   time: string;
   size: string;
   status: "sent" | "pending" | "failed";
 }
 
 const mockTransfers: TransferItem[] = [
-  { id: "1", fileName: "Try Docsora.pdf", sender: "user@gmail.com", time: "2 hours ago", size: "4.2 MB", status: "sent" },
-  { id: "2", fileName: "Project Assets.zip", sender: "alex@company.com", time: "Yesterday", size: "128 MB", status: "sent" },
-  { id: "3", fileName: "Brand Guidelines.pdf", sender: "design@studio.io", time: "2 days ago", size: "12.8 MB", status: "pending" },
-  { id: "4", fileName: "Q4 Report.xlsx", sender: "finance@corp.com", time: "3 days ago", size: "2.1 MB", status: "sent" },
+  { id: "1", fileName: "Try Docsora.pdf", time: "2 hours ago", size: "4.2 MB", status: "sent" },
+  { id: "2", fileName: "Project Assets.zip", time: "Yesterday", size: "128 MB", status: "sent" },
+  { id: "3", fileName: "Brand Guidelines.pdf", time: "2 days ago", size: "12.8 MB", status: "pending" },
+  { id: "4", fileName: "Q4 Report.xlsx", time: "3 days ago", size: "2.1 MB", status: "sent" },
 ];
 
 const statusStyles: Record<TransferItem["status"], string> = {
@@ -38,7 +37,7 @@ export function RecentTransfers() {
         boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
       }}
     >
-      <div className="flex items-center justify-between px-7 pt-6 pb-5">
+      <div className="flex items-center justify-between px-7 pt-7 pb-2">
         <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">
           Recent Transfers
         </h3>
@@ -48,36 +47,36 @@ export function RecentTransfers() {
         </button>
       </div>
 
-      <div className="px-4 pb-5">
+      <div className="px-5 pb-6 pt-3">
         {/* Header */}
-        <div className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 px-5 pb-4 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
+        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-6 px-4 pb-3 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
           <span>File</span>
-          <span>From</span>
           <span className="w-16 text-right">Size</span>
-          <span className="w-20 text-right">Time</span>
+          <span className="w-24 text-right">Time</span>
           <span className="w-16 text-right">Status</span>
         </div>
 
-        {mockTransfers.map((item, i) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.25, delay: 0.35 + i * 0.04 }}
-            className={cn(
-              "grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 items-center px-5 py-4 rounded-lg cursor-pointer",
-              "hover:bg-accent/50 transition-colors duration-150"
-            )}
-          >
-            <span className="text-sm text-foreground truncate">{item.fileName}</span>
-            <span className="text-sm text-muted-foreground truncate">{item.sender}</span>
-            <span className="text-xs text-muted-foreground/70 w-16 text-right">{item.size}</span>
-            <span className="text-xs text-muted-foreground/70 w-20 text-right">{item.time}</span>
-            <span className={cn("text-xs font-medium capitalize w-16 text-right", statusStyles[item.status])}>
-              {item.status}
-            </span>
-          </motion.div>
-        ))}
+        <div className="flex flex-col gap-1">
+          {mockTransfers.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25, delay: 0.35 + i * 0.04 }}
+              className={cn(
+                "grid grid-cols-[1fr_auto_auto_auto] gap-6 items-center px-4 py-4 rounded-lg cursor-pointer",
+                "hover:bg-accent/50 transition-colors duration-150"
+              )}
+            >
+              <span className="text-sm text-foreground truncate min-w-0">{item.fileName}</span>
+              <span className="text-xs text-muted-foreground/70 w-16 text-right whitespace-nowrap">{item.size}</span>
+              <span className="text-xs text-muted-foreground/70 w-24 text-right whitespace-nowrap">{item.time}</span>
+              <span className={cn("text-xs font-medium capitalize w-16 text-right", statusStyles[item.status])}>
+                {item.status}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
