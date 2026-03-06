@@ -2,11 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { AppLayout } from "@/components/layout/AppLayout";
 import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
-import { PriorityActions } from "@/components/dashboard/PriorityActions";
-import { ActiveWork } from "@/components/dashboard/ActiveWork";
-import { DocumentReminders } from "@/components/dashboard/DocumentReminders";
-import { RecentFiles } from "@/components/dashboard/RecentFiles";
-import { DocsoraCommand } from "@/components/command";
+import { ServiceOverview } from "@/components/dashboard/ServiceOverview";
 import { CreateAccountModal } from "@/components/dashboard/CreateAccountModal";
 
 export default function Index() {
