@@ -14,7 +14,7 @@ export function StorageStatus() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.3, delay: 0.15 }}
       onClick={() => navigate("/storage")}
-      className="flex flex-col gap-2 cursor-pointer group min-w-[180px]"
+      className="flex flex-col gap-1.5 cursor-pointer group min-w-[180px] items-end text-right"
     >
       <p className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase">
         Storage
