@@ -185,7 +185,7 @@ export function ServiceOverview() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.06 * i }}
             onClick={() => navigate(s.route)}
-            className="group flex-shrink-0 w-[172px] text-left transition-all duration-200 ease-out
+            className="group flex-shrink-0 min-w-[172px] w-[172px] snap-start text-left transition-all duration-200 ease-out
                        active:scale-[0.97]"
             style={{
               background: "linear-gradient(180deg, hsl(var(--card)), hsl(var(--surface-2)))",
