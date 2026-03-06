@@ -38,6 +38,7 @@ export default function Index() {
         {/* Minimal greeting */}
         <WelcomeBanner userName="Alex" />
 
+        <ServiceOverview />
       </motion.div>
 
       {/* Dark overlay when gated */}
