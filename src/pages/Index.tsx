@@ -42,33 +42,6 @@ export default function Index() {
         {/* Minimal greeting */}
         <WelcomeBanner userName="Alex" />
 
-        {/* Docsora Command - AI-powered command center */}
-        <div className="mt-6">
-          <DocsoraCommand />
-        </div>
-
-        {/* 1. Priority Actions - Time-sensitive, role-specific tasks */}
-        <div className="mt-10">
-          <PriorityActions />
-        </div>
-
-        {/* 2. Active Work - Merged section with groupings */}
-        <div className="mt-8">
-          <ActiveWork />
-        </div>
-
-        {/* 3. Two column layout for Reminders and Activity */}
-        <div className="mt-8 grid gap-6 lg:grid-cols-5">
-          {/* Reminders - Smaller column */}
-          <div className="lg:col-span-2">
-            <DocumentReminders />
-          </div>
-          
-          {/* Recent Activity - Larger column */}
-          <div className="lg:col-span-3">
-            <RecentFiles />
-          </div>
-        </div>
       </motion.div>
 
       {/* Dark overlay when gated */}
