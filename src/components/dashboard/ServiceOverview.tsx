@@ -156,17 +156,17 @@ export function ServiceOverview() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative -mx-6">
         {/* Left fade */}
         <div
-          className={`pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 ${
+          className={`pointer-events-none absolute left-0 top-0 bottom-0 w-16 z-10 transition-opacity duration-300 ${
             canScrollLeft ? "opacity-100" : "opacity-0"
           }`}
           style={{ background: "linear-gradient(to right, hsl(var(--background)), transparent)" }}
         />
         {/* Right fade */}
         <div
-          className={`pointer-events-none absolute right-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 ${
+          className={`pointer-events-none absolute right-0 top-0 bottom-0 w-16 z-10 transition-opacity duration-300 ${
             canScrollRight ? "opacity-100" : "opacity-0"
           }`}
           style={{ background: "linear-gradient(to left, hsl(var(--background)), transparent)" }}
@@ -175,8 +175,8 @@ export function ServiceOverview() {
         <div
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex gap-8 overflow-x-auto pb-2 snap-x snap-mandatory"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none", padding: "4px 24px" }}
+          className="flex gap-8 overflow-x-auto pb-4 pt-1 snap-x snap-mandatory px-6"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
         {services.map((s, i) => (
           <motion.button
