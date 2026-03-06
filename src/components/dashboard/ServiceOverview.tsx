@@ -169,29 +169,32 @@ export function ServiceOverview() {
                        active:scale-[0.97]"
             style={{
               background: "linear-gradient(180deg, hsl(var(--card)), hsl(var(--surface-2)))",
-              border: "1px solid hsl(var(--border) / 0.4)",
+              border: "1px solid hsl(var(--border) / 0.5)",
               borderRadius: "14px",
-              padding: "24px",
-              boxShadow: "0 2px 8px hsl(var(--glass-shadow) / 0.06)",
+              padding: "22px",
+              boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
             }}
             whileHover={{
               y: -4,
-              boxShadow: "0 8px 24px hsl(var(--glass-shadow) / 0.12)",
+              boxShadow: "0 12px 40px rgba(0,0,0,0.14)",
               transition: { duration: 0.2, ease: "easeOut" },
             }}
           >
             <div
-              className={`w-9 h-9 rounded-lg flex items-center justify-center mb-5 
-                          transition-colors duration-200 ${iconTextColors[i]}`}
-              style={{ background: s.iconColor }}
+              className={`w-10 h-10 rounded-xl flex items-center justify-center mb-4 
+                          transition-all duration-200 ${iconTextColors[i]}`}
+              style={{
+                background: s.iconColor,
+                boxShadow: `0 0 20px ${s.glowColor}`,
+              }}
             >
               {s.icon}
             </div>
-            <p className="text-[32px] font-bold text-foreground tracking-tight leading-none mb-1">
-              {s.value.split(" ")[0]}
+            <p className="text-[11px] font-medium text-muted-foreground tracking-wide uppercase mb-1.5">
+              {s.label}
             </p>
-            <p className="text-[11px] font-medium text-muted-foreground/70 tracking-wide uppercase">
-              {s.value.split(" ").slice(1).join(" ") || s.label}
+            <p className="text-2xl font-bold text-foreground tracking-tight leading-none">
+              {s.value}
             </p>
           </motion.button>
         ))}
