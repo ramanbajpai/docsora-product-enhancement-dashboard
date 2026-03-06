@@ -40,6 +40,10 @@ export default function Index() {
         <WelcomeBanner userName="Alex" />
 
         <ServiceOverview />
+
+        <div className="mt-8 max-w-[220px]">
+          <StorageStatus />
+        </div>
       </motion.div>
 
       {/* Dark overlay when gated */}
