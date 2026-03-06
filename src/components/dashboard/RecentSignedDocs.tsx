@@ -5,17 +5,16 @@ import { cn } from "@/lib/utils";
 interface SignedDoc {
   id: string;
   fileName: string;
-  sender: string;
   time: string;
   size: string;
   status: "signed" | "pending" | "sent";
 }
 
 const mockSigned: SignedDoc[] = [
-  { id: "1", fileName: "Docsora Pitch Deck.pdf", sender: "You", time: "Yesterday", size: "8.4 MB", status: "signed" },
-  { id: "2", fileName: "Partnership Agreement.pdf", sender: "legal@partner.co", time: "2 days ago", size: "1.2 MB", status: "pending" },
-  { id: "3", fileName: "NDA - Project Alpha.pdf", sender: "You", time: "4 days ago", size: "420 KB", status: "signed" },
-  { id: "4", fileName: "Contractor Agreement.pdf", sender: "hr@company.com", time: "1 week ago", size: "890 KB", status: "sent" },
+  { id: "1", fileName: "Docsora Pitch Deck.pdf", time: "Yesterday", size: "8.4 MB", status: "signed" },
+  { id: "2", fileName: "Partnership Agreement.pdf", time: "2 days ago", size: "1.2 MB", status: "pending" },
+  { id: "3", fileName: "NDA - Project Alpha.pdf", time: "4 days ago", size: "420 KB", status: "signed" },
+  { id: "4", fileName: "Contractor Agreement.pdf", time: "1 week ago", size: "890 KB", status: "sent" },
 ];
 
 const statusStyles: Record<SignedDoc["status"], string> = {
@@ -38,7 +37,7 @@ export function RecentSignedDocs() {
         boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
       }}
     >
-      <div className="flex items-center justify-between px-7 pt-6 pb-5">
+      <div className="flex items-center justify-between px-7 pt-7 pb-2">
         <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">
           Signed Documents
         </h3>
@@ -48,35 +47,35 @@ export function RecentSignedDocs() {
         </button>
       </div>
 
-      <div className="px-4 pb-5">
-        <div className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 px-5 pb-4 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
+      <div className="px-5 pb-6 pt-3">
+        <div className="grid grid-cols-[1fr_auto_auto_auto] gap-6 px-4 pb-3 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
           <span>Document</span>
-          <span>From</span>
           <span className="w-16 text-right">Size</span>
-          <span className="w-20 text-right">Time</span>
+          <span className="w-24 text-right">Time</span>
           <span className="w-16 text-right">Status</span>
         </div>
 
-        {mockSigned.map((item, i) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.25, delay: 0.4 + i * 0.04 }}
-            className={cn(
-              "grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 items-center px-5 py-4 rounded-lg cursor-pointer",
-              "hover:bg-accent/50 transition-colors duration-150"
-            )}
-          >
-            <span className="text-sm text-foreground truncate">{item.fileName}</span>
-            <span className="text-sm text-muted-foreground truncate">{item.sender}</span>
-            <span className="text-xs text-muted-foreground/70 w-16 text-right">{item.size}</span>
-            <span className="text-xs text-muted-foreground/70 w-20 text-right">{item.time}</span>
-            <span className={cn("text-xs font-medium capitalize w-16 text-right", statusStyles[item.status])}>
-              {item.status}
-            </span>
-          </motion.div>
-        ))}
+        <div className="flex flex-col gap-1">
+          {mockSigned.map((item, i) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.25, delay: 0.4 + i * 0.04 }}
+              className={cn(
+                "grid grid-cols-[1fr_auto_auto_auto] gap-6 items-center px-4 py-4 rounded-lg cursor-pointer",
+                "hover:bg-accent/50 transition-colors duration-150"
+              )}
+            >
+              <span className="text-sm text-foreground truncate min-w-0">{item.fileName}</span>
+              <span className="text-xs text-muted-foreground/70 w-16 text-right whitespace-nowrap">{item.size}</span>
+              <span className="text-xs text-muted-foreground/70 w-24 text-right whitespace-nowrap">{item.time}</span>
+              <span className={cn("text-xs font-medium capitalize w-16 text-right", statusStyles[item.status])}>
+                {item.status}
+              </span>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </motion.div>
   );
