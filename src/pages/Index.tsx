@@ -37,14 +37,13 @@ export default function Index() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.4 }}
       >
-        {/* Minimal greeting */}
-        <WelcomeBanner userName="Alex" />
-
-        <ServiceOverview />
-
-        <div className="mt-8 max-w-[220px]">
+        {/* Header: greeting + storage indicator */}
+        <div className="flex items-start justify-between">
+          <WelcomeBanner userName="Alex" />
           <StorageStatus />
         </div>
+
+        <ServiceOverview />
 
         {/* Recent activity tables */}
         <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
