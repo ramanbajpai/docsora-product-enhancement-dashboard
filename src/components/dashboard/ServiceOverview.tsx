@@ -109,10 +109,14 @@ export function ServiceOverview() {
     setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - 4);
   };
 
+  const cardWidth = 172;
+  const gap = 32;
+  const scrollStep = cardWidth + gap;
+
   const scroll = (dir: "left" | "right") => {
     const el = scrollRef.current;
     if (!el) return;
-    el.scrollBy({ left: dir === "left" ? -280 : 280, behavior: "smooth" });
+    el.scrollBy({ left: dir === "left" ? -scrollStep : scrollStep, behavior: "smooth" });
   };
 
   return (
@@ -152,12 +156,28 @@ export function ServiceOverview() {
         </div>
       </div>
 
-      <div
-        ref={scrollRef}
-        onScroll={checkScroll}
-        className="flex gap-8 overflow-x-auto pb-2 -mx-1 px-1"
-        style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-      >
+      <div className="relative">
+        {/* Left fade */}
+        <div
+          className={`pointer-events-none absolute left-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 ${
+            canScrollLeft ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ background: "linear-gradient(to right, hsl(var(--background)), transparent)" }}
+        />
+        {/* Right fade */}
+        <div
+          className={`pointer-events-none absolute right-0 top-0 bottom-0 w-12 z-10 transition-opacity duration-300 ${
+            canScrollRight ? "opacity-100" : "opacity-0"
+          }`}
+          style={{ background: "linear-gradient(to left, hsl(var(--background)), transparent)" }}
+        />
+
+        <div
+          ref={scrollRef}
+          onScroll={checkScroll}
+          className="flex gap-8 overflow-x-auto pb-2 snap-x snap-mandatory"
+          style={{ scrollbarWidth: "none", msOverflowStyle: "none", padding: "4px 24px" }}
+        >
         {services.map((s, i) => (
           <motion.button
             key={s.label}
@@ -165,7 +185,7 @@ export function ServiceOverview() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: 0.06 * i }}
             onClick={() => navigate(s.route)}
-            className="group flex-shrink-0 w-[172px] text-left transition-all duration-200 ease-out
+            className="group flex-shrink-0 min-w-[172px] w-[172px] snap-start text-left transition-all duration-200 ease-out
                        active:scale-[0.97]"
             style={{
               background: "linear-gradient(180deg, hsl(var(--card)), hsl(var(--surface-2)))",
@@ -198,6 +218,7 @@ export function ServiceOverview() {
             </p>
           </motion.button>
         ))}
+        </div>
       </div>
     </motion.div>
   );
