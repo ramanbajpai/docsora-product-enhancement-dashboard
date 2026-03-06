@@ -218,6 +218,7 @@ export function ServiceOverview() {
             </p>
           </motion.button>
         ))}
+        </div>
       </div>
     </motion.div>
   );
