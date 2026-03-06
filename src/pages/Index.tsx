@@ -4,8 +4,9 @@ import { AppLayout } from "@/components/layout/AppLayout";
 import { WelcomeBanner } from "@/components/dashboard/WelcomeBanner";
 import { ServiceOverview } from "@/components/dashboard/ServiceOverview";
 import { StorageStatus } from "@/components/dashboard/StorageStatus";
+import { RecentTransfers } from "@/components/dashboard/RecentTransfers";
+import { RecentSignedDocs } from "@/components/dashboard/RecentSignedDocs";
 import { CreateAccountModal } from "@/components/dashboard/CreateAccountModal";
-
 export default function Index() {
   // For demo: always show modal (in real app, check auth state)
   const [showAuthGate, setShowAuthGate] = useState(true);
@@ -43,6 +44,12 @@ export default function Index() {
 
         <div className="mt-8 max-w-[220px]">
           <StorageStatus />
+        </div>
+
+        {/* Recent activity tables */}
+        <div className="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <RecentTransfers />
+          <RecentSignedDocs />
         </div>
       </motion.div>
 
