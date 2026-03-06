@@ -205,6 +205,7 @@ export function ServiceOverview() {
                           transition-all duration-200 ${iconTextColors[i]}`}
               style={{
                 background: s.iconColor,
+                boxShadow: "0 0 12px 2px hsl(var(--primary) / 0.25)",
               }}
             >
               {s.icon}
