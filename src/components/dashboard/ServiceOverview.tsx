@@ -86,14 +86,14 @@ const services: ServiceCard[] = [
 ];
 
 const iconTextColors = [
-  "text-blue-500",
-  "text-rose-500",
-  "text-indigo-500",
   "text-emerald-500",
+  "text-rose-500",
+  "text-blue-500",
   "text-yellow-500",
-  "text-violet-500",
-  "text-cyan-500",
   "text-orange-500",
+  "text-cyan-500",
+  "text-violet-500",
+  "text-indigo-500",
 ];
 
 export function ServiceOverview() {
