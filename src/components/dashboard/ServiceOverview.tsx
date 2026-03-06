@@ -31,7 +31,7 @@ const services: ServiceCard[] = [
     label: "Compressed",
     value: "1.04 MB",
     icon: <CompressIcon className="w-5 h-5" />,
-    iconColor: "hsl(var(--muted))",
+    iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/compress",
   },
@@ -47,7 +47,7 @@ const services: ServiceCard[] = [
     label: "Signed",
     value: "20 docs",
     icon: <PenTool className="w-5 h-5" />,
-    iconColor: "hsl(var(--muted))",
+    iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/sign",
   },
@@ -63,7 +63,7 @@ const services: ServiceCard[] = [
     label: "Tracked",
     value: "32 docs",
     icon: <TrackIcon className="w-5 h-5" />,
-    iconColor: "hsl(var(--muted))",
+    iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/track",
   },
@@ -79,7 +79,7 @@ const services: ServiceCard[] = [
     label: "Transferred",
     value: "119 files",
     icon: <Send className="w-5 h-5" />,
-    iconColor: "hsl(var(--muted))",
+    iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/transfer",
   },
@@ -87,13 +87,13 @@ const services: ServiceCard[] = [
 
 const iconTextColors = [
   "text-primary",
-  "text-muted-foreground",
   "text-primary",
-  "text-muted-foreground",
   "text-primary",
-  "text-muted-foreground",
   "text-primary",
-  "text-muted-foreground",
+  "text-primary",
+  "text-primary",
+  "text-primary",
+  "text-primary",
 ];
 
 export function ServiceOverview() {

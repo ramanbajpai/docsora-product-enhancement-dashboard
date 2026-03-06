@@ -38,7 +38,7 @@ export function RecentSignedDocs() {
         boxShadow: "0 8px 30px rgba(0,0,0,0.08)",
       }}
     >
-      <div className="flex items-center justify-between px-6 pt-5 pb-4">
+      <div className="flex items-center justify-between px-7 pt-6 pb-5">
         <h3 className="text-sm font-medium text-muted-foreground tracking-wide uppercase">
           Signed Documents
         </h3>
@@ -48,8 +48,8 @@ export function RecentSignedDocs() {
         </button>
       </div>
 
-      <div className="px-3 pb-3">
-        <div className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-6 px-5 pb-3 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
+      <div className="px-4 pb-5">
+        <div className="grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 px-5 pb-4 text-[11px] font-medium text-muted-foreground/60 uppercase tracking-wider">
           <span>Document</span>
           <span>From</span>
           <span className="w-16 text-right">Size</span>
@@ -64,7 +64,7 @@ export function RecentSignedDocs() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.25, delay: 0.4 + i * 0.04 }}
             className={cn(
-              "grid grid-cols-[1fr_1fr_auto_auto_auto] gap-6 items-center px-5 py-3.5 rounded-lg cursor-pointer",
+              "grid grid-cols-[1fr_1fr_auto_auto_auto] gap-8 items-center px-5 py-4 rounded-lg cursor-pointer",
               "hover:bg-accent/50 transition-colors duration-150"
             )}
           >
