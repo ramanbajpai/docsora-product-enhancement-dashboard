@@ -2,9 +2,12 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  FileOutput, Minimize2, Send, ShieldCheck, PenLine,
-  FileText, Languages, GitCompare, ChevronLeft, ChevronRight
+  RefreshCw, PenTool, FolderOpen, Languages, Send,
+  ChevronLeft, ChevronRight
 } from "lucide-react";
+import { AICheckIcon } from "@/components/icons/AICheckIcon";
+import CompressIcon from "@/components/icons/CompressIcon";
+import TrackIcon from "@/components/icons/TrackIcon";
 
 interface ServiceCard {
   label: string;
