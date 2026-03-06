@@ -2,9 +2,12 @@ import { motion } from "framer-motion";
 import { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  FileOutput, Minimize2, Send, ShieldCheck, PenLine,
-  FileText, Languages, GitCompare, ChevronLeft, ChevronRight
+  RefreshCw, PenTool, FolderOpen, Languages, Send,
+  ChevronLeft, ChevronRight
 } from "lucide-react";
+import { AICheckIcon } from "@/components/icons/AICheckIcon";
+import CompressIcon from "@/components/icons/CompressIcon";
+import TrackIcon from "@/components/icons/TrackIcon";
 
 interface ServiceCard {
   label: string;
@@ -17,44 +20,52 @@ interface ServiceCard {
 
 const services: ServiceCard[] = [
   {
-    label: "Converted",
-    value: "13 files",
-    icon: <FileOutput className="w-5 h-5" />,
-    iconColor: "rgba(59,130,246,0.12)",
-    glowColor: "rgba(59,130,246,0.2)",
-    route: "/convert",
-  },
-  {
-    label: "Compressed",
-    value: "1.04 MB",
-    icon: <Minimize2 className="w-5 h-5" />,
-    iconColor: "rgba(244,63,94,0.12)",
-    glowColor: "rgba(244,63,94,0.2)",
-    route: "/compress",
-  },
-  {
-    label: "Transferred",
-    value: "119 files",
-    icon: <Send className="w-5 h-5" />,
-    iconColor: "rgba(99,102,241,0.12)",
-    glowColor: "rgba(99,102,241,0.2)",
-    route: "/transfer",
-  },
-  {
     label: "AI Checks",
     value: "13 checks",
-    icon: <ShieldCheck className="w-5 h-5" />,
+    icon: <AICheckIcon className="w-5 h-5" />,
     iconColor: "rgba(16,185,129,0.12)",
     glowColor: "rgba(16,185,129,0.2)",
     route: "/ai-check",
   },
   {
+    label: "Compressed",
+    value: "1.04 MB",
+    icon: <CompressIcon className="w-5 h-5" />,
+    iconColor: "rgba(244,63,94,0.12)",
+    glowColor: "rgba(244,63,94,0.2)",
+    route: "/compress",
+  },
+  {
+    label: "Converted",
+    value: "13 files",
+    icon: <RefreshCw className="w-5 h-5" />,
+    iconColor: "rgba(59,130,246,0.12)",
+    glowColor: "rgba(59,130,246,0.2)",
+    route: "/convert",
+  },
+  {
     label: "Signed",
     value: "20 docs",
-    icon: <PenLine className="w-5 h-5" />,
+    icon: <PenTool className="w-5 h-5" />,
     iconColor: "rgba(234,179,8,0.12)",
     glowColor: "rgba(234,179,8,0.2)",
     route: "/sign",
+  },
+  {
+    label: "Stored",
+    value: "247 files",
+    icon: <FolderOpen className="w-5 h-5" />,
+    iconColor: "rgba(249,115,22,0.12)",
+    glowColor: "rgba(249,115,22,0.2)",
+    route: "/storage",
+  },
+  {
+    label: "Tracked",
+    value: "32 docs",
+    icon: <TrackIcon className="w-5 h-5" />,
+    iconColor: "rgba(6,182,212,0.12)",
+    glowColor: "rgba(6,182,212,0.2)",
+    route: "/track",
   },
   {
     label: "Translated",
@@ -65,32 +76,24 @@ const services: ServiceCard[] = [
     route: "/translate",
   },
   {
-    label: "Compared",
-    value: "5 pairs",
-    icon: <GitCompare className="w-5 h-5" />,
-    iconColor: "rgba(6,182,212,0.12)",
-    glowColor: "rgba(6,182,212,0.2)",
-    route: "/tools/compare",
-  },
-  {
-    label: "Stored",
-    value: "247 files",
-    icon: <FileText className="w-5 h-5" />,
-    iconColor: "rgba(249,115,22,0.12)",
-    glowColor: "rgba(249,115,22,0.2)",
-    route: "/storage",
+    label: "Transferred",
+    value: "119 files",
+    icon: <Send className="w-5 h-5" />,
+    iconColor: "rgba(99,102,241,0.12)",
+    glowColor: "rgba(99,102,241,0.2)",
+    route: "/transfer",
   },
 ];
 
 const iconTextColors = [
-  "text-blue-500",
-  "text-rose-500",
-  "text-indigo-500",
   "text-emerald-500",
+  "text-rose-500",
+  "text-blue-500",
   "text-yellow-500",
-  "text-violet-500",
-  "text-cyan-500",
   "text-orange-500",
+  "text-cyan-500",
+  "text-violet-500",
+  "text-indigo-500",
 ];
 
 export function ServiceOverview() {
