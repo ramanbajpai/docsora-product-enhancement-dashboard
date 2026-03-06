@@ -22,7 +22,7 @@ const services: ServiceCard[] = [
   {
     label: "AI Checks",
     value: "13 checks",
-    icon: <AICheckIcon className="w-5 h-5" />,
+    icon: <AICheckIcon className="w-5 h-5" variant="primary" />,
     iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/ai-check",
@@ -30,7 +30,7 @@ const services: ServiceCard[] = [
   {
     label: "Compressed",
     value: "1.04 MB",
-    icon: <CompressIcon className="w-5 h-5" />,
+    icon: <CompressIcon className="w-5 h-5" variant="primary" />,
     iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/compress",
@@ -62,7 +62,7 @@ const services: ServiceCard[] = [
   {
     label: "Tracked",
     value: "32 docs",
-    icon: <TrackIcon className="w-5 h-5" />,
+    icon: <TrackIcon className="w-5 h-5" variant="primary" />,
     iconColor: "hsl(var(--primary) / 0.1)",
     glowColor: "transparent",
     route: "/track",
