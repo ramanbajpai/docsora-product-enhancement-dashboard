@@ -380,7 +380,7 @@ export function TransferSuccess({
                 className="absolute inset-0 bg-gradient-to-r from-transparent via-white/15 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"
               />
               <History className="w-5 h-5 relative z-10" />
-              <span className="relative z-10">View in Track</span>
+              <span className="relative z-10">View Details</span>
             </motion.button>
           </Link>
         ) : (
