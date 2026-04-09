@@ -71,7 +71,7 @@ const Sora = () => {
           transition={{ delay: 0.5, duration: 0.4 }}
           className="text-sm text-muted-foreground/60 text-center max-w-sm leading-relaxed"
         >
-          Intelligent document understanding, powered by AI. Coming soon.
+          The execution layer for documents, powered by AI. Coming soon.
         </motion.p>
 
         <motion.p
