@@ -17,6 +17,7 @@ import Tool from "./pages/Tool";
 import Sign from "./pages/Sign";
 import DocumentViewer from "./pages/DocumentViewer";
 import SignedDocumentViewerPage from "./pages/SignedDocumentViewerPage";
+import Sora from "./pages/Sora";
 import NotFound from "./pages/NotFound";
 import SignReceived from "./pages/SignReceived";
 import SignerSetup from "./pages/SignerSetup";
@@ -50,6 +51,7 @@ const App = () => (
             <Route path="/transfer" element={<Transfer />} />
             <Route path="/tools" element={<Tools />} />
             <Route path="/tools/:toolId" element={<Tool />} />
+            <Route path="/sora" element={<Sora />} />
             <Route path="/sign" element={<Sign />} />
             <Route path="/document-viewer" element={<DocumentViewer />} />
             <Route path="/signed-document-viewer" element={<SignedDocumentViewerPage />} />

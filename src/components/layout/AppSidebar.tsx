@@ -30,6 +30,7 @@ import { useTheme } from "@/hooks/useTheme";
 import { AICheckIcon } from "@/components/icons/AICheckIcon";
 import CompressIcon from "@/components/icons/CompressIcon";
 import TrackIcon from "@/components/icons/TrackIcon";
+import SoraOrb from "@/components/icons/SoraOrb";
 
 
 // Logo imports
@@ -58,6 +59,7 @@ const navItems: NavItem[] = [
   { title: "Translate", icon: Languages, path: "/translate" },
   { title: "Transfer", icon: Send, path: "/transfer" },
   { title: "Tools", icon: LayoutGrid, path: "/tools" },
+  { title: "Sora", icon: SoraOrb, path: "/sora" },
 ];
 
 export function AppSidebar() {
